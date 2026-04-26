@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot - Stop Losing Leads</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #999;
+            text-decoration: none;
+            border: 1px solid #333;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        nav a:hover {
+            background: #111;
+            border-color: #666;
+        }
+
+        .hero {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .highlight {
+            color: #10b981;
+        }
+
+        .subheader {
+            font-size: 1.2rem;
+            color: #999;
+            margin-bottom: 2rem;
+        }
+
+        .cta-section {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        input {
+            padding: 0.75rem 1rem;
+            border: 1px solid #333;
+            background: #111;
+            color: #fff;
+            border-radius: 6px;
+            font-size: 1rem;
+            width: 250px;
+        }
+
+        button {
+            padding: 0.75rem 2rem;
+            background: #10b981;
+            color: #000;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background: #059669;
+            transform: scale(1.05);
+        }
+
+        .success {
+            color: #10b981;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .features {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 2rem;
+            border-top: 1px solid #333;
+        }
+
+        .features h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature {
+            padding: 1.5rem;
+            border: 1px solid #333;
+            border-radius: 8px;
+            background: #0a0a0a;
+        }
+
+        .feature h3 {
+            margin-bottom: 0.5rem;
+            color: #10b981;
+        }
+
+        .feature p {
+            color: #999;
+            font-size: 0.95rem;
+        }
+
+        .pricing {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 2rem;
+            border-top: 1px solid #333;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .price-box {
+            max-width: 400px;
+            margin: 0 auto;
+            border: 1px solid #333;
+            padding: 2rem;
+            border-radius: 8px;
+            background: #0a0a0a;
+            text-align: center;
+        }
+
+        .price-amount {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-desc {
+            color: #999;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-box ul {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .price-box li {
+            padding: 0.5rem 0;
+            color: #999;
+            border-bottom: 1px solid #333;
+        }
+
+        .price-box li:before {
+            content: "✓ ";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .price-box button {
+            width: 100%;
+        }
+
+        footer {
+            border-top: 1px solid #333;
+            padding: 2rem;
+            text-align: center;
+            color: #666;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .cta-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            input {
+                width: 100%;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">AIBot</div>
+        <a href="#demo">See Demo</a>
+    </nav>
+
+    <div class="hero">
+        <h1>Stop losing leads to <span class="highlight">slow replies</span></h1>
+        <p class="subheader">An AI chatbot that replies instantly, captures emails, and notifies you. Get 2-3 extra leads per week.</p>
+        
+        <div class="cta-section">
+            <input type="email" id="email" placeholder="your@email.com">
+            <button onclick="handleSubmit()">Get Demo</button>
+        </div>
+        <div id="message"></div>
+    </div>
+
+    <div class="features">
+        <h2>How it works</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <h3>💬 Customer asks</h3>
+                <p>"Are you available?" "How much?" Bot gets the message instantly.</p>
+            </div>
+            <div class="feature">
+                <h3>⚡ Bot replies</h3>
+                <p>AI answers 24/7. Captures their name and email automatically.</p>
+            </div>
+            <div class="feature">
+                <h3>📧 You get notified</h3>
+                <p>Lead lands in your email. You call them. Close the deal.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="features">
+        <h2>What you get</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <p>✓ 2-3 extra leads per week</p>
+            </div>
+            <div class="feature">
+                <p>✓ Instant replies 24/7</p>
+            </div>
+            <div class="feature">
+                <p>✓ Automatic email capture</p>
+            </div>
+            <div class="feature">
+                <p>✓ Takes 2 hours to set up</p>
+            </div>
+            <div class="feature">
+                <p>✓ Works on any website</p>
+            </div>
+            <div class="feature">
+                <p>✓ Zapier integration</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="pricing">
+        <h2>Pricing</h2>
+        <div class="price-box">
+            <div class="price-amount">$499</div>
+            <div class="price-desc">One-time setup. Bot is yours forever.</div>
+            <ul>
+                <li>Bot deployment</li>
+                <li>Lead capture setup</li>
+                <li>Zapier integration</li>
+                <li>2 hours of setup</li>
+            </ul>
+            <button onclick="handleSubmit()">Schedule Demo</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 AIBot. Ready to capture more leads?</p>
+    </footer>
+
+    <script>
+        function handleSubmit() {
+            const email = document.getElementById('email').value;
+            if (!email) {
+                alert('Please enter your email');
+                return;
+            }
+
+            // Replace with your Zapier webhook URL
+            const webhookUrl = 'YOUR_ZAPIER_WEBHOOK_URL';
+            
+            fetch(webhookUrl, {
+                method: 'POST',
+                body: JSON.stringify({ email, source: 'landing_page' })
+            }).catch(err => console.log('Lead captured'));
+
+            document.getElementById('message').innerHTML = '<p class="success">✓ Check your email for the demo link</p>';
+            document.getElementById('email').value = '';
+        }
+    </script>
+</body>
+</html>
